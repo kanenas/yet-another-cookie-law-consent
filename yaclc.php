@@ -28,4 +28,23 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+register_activation_hook( __FILE__, 'yaclc_activation' );
+register_deactivation_hook( __FILE__, 'yaclc_deactivation' );
+
+function yaclc_activation() {
+
+}
+
+function yaclc_deactivation() {
+
+}
+
+/**
+ * Load the plugin textdomain.
+ */
+function yaclc_load_plugin_textdomain() {
+	load_plugin_textdomain( 'yet-another-cookie-law-consent', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'yaclc_load_plugin_textdomain' );
+
 ?>
